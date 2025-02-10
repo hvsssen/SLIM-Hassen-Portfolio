@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,RouterLink],
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -14,10 +14,13 @@ export class NavbarComponent {
   isSticky: boolean = false;
   menuOpen = false;
 
-toggleMenu() {
-  this.menuOpen = !this.menuOpen;
-}
- // Define the property
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
 
   @HostListener("window:scroll", [])
   onWindowScroll() {

@@ -7,16 +7,16 @@
       </div>
 
       <div class="menu-toggle" (click)="toggleMenu()">
-          ☰
-      </div>
+        ☰
+    </div>
 
-      <ul class="nav-links" [ngClass]="{'active': menuOpen}">
-          <li><a routerLink="home" routerLinkActive="activebutton" ariaCurrentWhenActive="page">Home</a></li>
-          <li><a routerLink="resume" routerLinkActive="activebutton" ariaCurrentWhenActive="page">Resume</a></li>
-          <li><a routerLink="skills" routerLinkActive="activebutton" ariaCurrentWhenActive="page">Skills</a></li>
-          <li><a routerLink="projects" routerLinkActive="activebutton" ariaCurrentWhenActive="page">Projects</a></li>
-          <li><a routerLink="contact" routerLinkActive="activebutton" ariaCurrentWhenActive="page">Contact</a></li>
-      </ul>
+    <ul class="nav-links" [ngClass]="{'active': menuOpen}">
+        <li><a routerLink="home" routerLinkActive="activebutton" (click)="closeMenu()">Home</a></li>
+        <li><a routerLink="resume" routerLinkActive="activebutton" (click)="closeMenu()">Resume</a></li>
+        <li><a routerLink="skills" routerLinkActive="activebutton" (click)="closeMenu()">Skills</a></li>
+        <li><a routerLink="projects" routerLinkActive="activebutton" (click)="closeMenu()">Projects</a></li>
+        <li><a routerLink="contact" routerLinkActive="activebutton" (click)="closeMenu()">Contact</a></li>
+    </ul>
 
       <div class="media-icons">
           <a href="https://www.linkedin.com/in/slim-hassen-12b4402bb" target="_blank" rel="noopener noreferrer">
