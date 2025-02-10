@@ -1,0 +1,221 @@
+
+section .content{
+    padding-top: 90px;
+
+    width: 80%;
+    margin: 10px auto;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .skills .skills-details{
+    display: flex;
+    align-items: justify;
+  }
+
+  section .title{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  section .title span{
+    color: #0E2431;
+    font-size: 30px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
+  }
+  section .title span::before,
+  section .title span::after{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #275be9;
+    left: 0;
+    bottom: 0;
+  }
+  section .title span::after{
+    bottom: -7px;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .skills .skills-details .left{
+    width: 40%;
+
+  }
+  .skills .left img{
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-left: -150px; /* Moves image left */
+
+  }
+  .skills-details .right{
+    width: 55%;
+  }
+  section  .topic{
+    color: #0E2431;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .about-deskills .right p{
+    text-align: center;
+    color: #0E2431;
+  }
+  section .button{
+    margin: 16px 0;
+  }
+  section .button button{
+    outline: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 25px;
+    font-weight: 400;
+    background: #4070f4;
+    color: #fff;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.4s ease;
+  }
+  section .button button:hover{
+    border-color: #4070f4;
+    background-color: #fff;
+    color: #4070f4;
+  }
+ 
+  .skills {
+    padding: 50px 10%;
+    background-color:  #ffffff;
+}
+
+.skills .title {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.skills-details {
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.skills-details .text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.skills-details .text .topic {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4070f4;
+}
+
+.skills-details .text p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.skills-details .experience {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.skills-details .experience .num {
+    font-size: 40px;
+    font-weight: bold;
+    color: #4070f4;
+    margin-right: 10px;
+}
+
+.skills-details .experience .exp {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.skills-details .boxes {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 300px;
+}
+
+.skills-details .box {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-left: 5px solid #4070f4;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.skills-details .box .topic {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.skills-details .box .per {
+    font-size: 16px;
+    color: #ffffff;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill img {
+    width: 40px; /* Adjust as needed */
+    height: 40px;
+    object-fit: contain;
+}
+
+.skill span {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+.soft-skills-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0E2431;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: start;}
+
+.soft-skills-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #4070f4;
+    border-radius: 2px;
+}
+
+.soft-skills-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: justify;
+    line-height: 1.6;
+    padding: 10px 20px;
+    background: #f9f9f9;
+    border-left: 5px solid #4070f4;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}

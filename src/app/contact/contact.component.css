@@ -1,0 +1,136 @@
+/* Reset & Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Conteneur principal */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    box-shadow: 0 10px 20px rgba(24, 23, 23, 0.738);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Carte d'information */
+.contact-info {
+    flex: 1;
+    background: #d5dbe9;
+    color: rgb(5, 5, 5);
+    padding: 40px;
+}
+
+.contact-info h2 {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 50px;
+}
+
+.contact-info .info {
+    margin-top: 35px;
+justify-content: center;
+    margin-bottom: 50px;
+}
+
+.contact-info .media-icons  {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+
+/* Formulaire de contact */
+.contact-form {
+    flex: 1;
+    padding: 40px;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.media-icons a img {
+    width: 30px; 
+    height: auto; 
+    margin: 0 10px; 
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .media-icons a img:hover {
+    opacity: 1; /* Full opacity on hover */
+    transform: scale(1.1); /* Slightly enlarge the hovered icon */
+  }
+  
+  .media-icons a:hover ~ a img {
+    opacity: 0; /* Hide the other icons */
+  }
+  
+  .media-icons a:not(:hover) img {
+    opacity: 0.5; 
+  }
+
+.contact-form button:hover {
+    background: #005bb5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .contact-info, .contact-form {
+        padding: 20px;
+    }
+}
