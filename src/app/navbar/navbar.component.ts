@@ -11,7 +11,13 @@ import { NgModule } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  isSticky: boolean = false; // Define the property
+  isSticky: boolean = false;
+  menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+ // Define the property
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
