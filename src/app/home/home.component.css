@@ -49,6 +49,7 @@
 }
   
 .button button {
+    font-family: inherit; /* This makes the button use the parent's font */
     padding: 10px 20px;
     background-color: #1d4ed8;
     color: white;
