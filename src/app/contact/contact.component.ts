@@ -40,10 +40,10 @@ export class ContactComponent {
         subject :'aaa'
       })
       .then(
-        (response) => {
+        (response:any) => {
           console.log('SUCCESS!', response.status, response.text);
         },
-        (err) => {
+        (err:any) => {
           console.log('FAILED...', err);
         },
       );
