@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import emailjs from '@emailjs/browser';
+import * as emailjs from '@emailjs/browser';
 import { from } from 'rxjs';
 import{ReactiveFormsModule} from '@angular/forms';
 import { CommonModule } from '@angular/common';
