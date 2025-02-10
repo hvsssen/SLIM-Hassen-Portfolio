@@ -49,18 +49,21 @@
 }
   
 .button button {
-    font-family: inherit; /* This makes the button use the parent's font */
-    padding: 10px 20px;
-    background-color: #1d4ed8;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
+    padding: 8px 14px;
+  font-size: 18px;
+  font-weight: 500;
+  background: #4070f4;
+  color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
 }
   
 .button button:hover {
-    background-color: #1e40af;
+    background: #fff;
+  color: #4070f4;
+  border-color: #4070f4;
 }
   
 /* Background Video */

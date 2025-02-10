@@ -85,7 +85,6 @@ section .title span::after{
   font-weight: bold;
 }
 
-/* Responsive Buttons */
 .about .button {
   margin-top: 16px;
   display: flex;
