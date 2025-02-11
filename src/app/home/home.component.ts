@@ -14,20 +14,28 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit() {
     const videoElement = this.video.nativeElement;
 
+    const playVideo = () => {
+      videoElement.muted = true; // Mute pour autoriser l'autoplay
+      videoElement.play().catch((err: any) => console.log('Autoplay blocked:', err));
+    };
+
+    // Attendre un court délai après l'affichage du composant
+    setTimeout(() => {
+      playVideo();
+    }, 500);
+
+    // Vérifier périodiquement si la vidéo est en pause et tenter de la relancer
+    setInterval(() => {
+      if (videoElement.paused) {
+        playVideo();
+      }
+    }, 2000);
+
+    // Relancer la vidéo à chaque changement de route vers /home
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        setTimeout(() => {
-          videoElement.muted = true; // Assure que la vidéo est bien muette
-          videoElement.play().catch((err: any) => console.log('Autoplay blocked:', err));
-        }, 500);
+        playVideo();
       }
     });
-
-    // Forcer la lecture de la vidéo si elle est en pause
-    setTimeout(() => {
-      if (videoElement.paused) {
-        videoElement.play().catch((err: any) => console.log('Autoplay blocked:', err));
-      }
-    }, 1000);
   }
 }
