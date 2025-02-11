@@ -94,9 +94,7 @@
       width: 100%;
       height: auto;
       padding-top: 80px;
-      pointer-events: none; /* Désactive les interactions */
       user-select: none; /* Empêche la sélection */
-      -webkit-touch-callout: none; 
     }
     video::-webkit-media-controls {
         display: none !important; /* Masque les contrôles du lecteur */
