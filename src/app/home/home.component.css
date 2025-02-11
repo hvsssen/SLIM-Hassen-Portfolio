@@ -75,6 +75,9 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
+    pointer-events: none; /* Désactive les interactions */
+    user-select: none; /* Empêche la sélection */
+    -webkit-touch-callout: none; 
 }
   
 /* Responsive Styles: On screens under 768px, move the video on top */
@@ -91,6 +94,9 @@
       width: 100%;
       height: auto;
       padding-top: 80px;
+      pointer-events: none; /* Désactive les interactions */
+      user-select: none; /* Empêche la sélection */
+      -webkit-touch-callout: none; 
     }
     
     .home-content {
