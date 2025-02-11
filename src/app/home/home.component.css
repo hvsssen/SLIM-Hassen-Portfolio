@@ -98,9 +98,21 @@
       user-select: none; /* Empêche la sélection */
       -webkit-touch-callout: none; 
     }
+    video::-webkit-media-controls {
+        display: none !important; /* Masque les contrôles du lecteur */
+    }
+    
+    video::-webkit-media-controls-start-playback-button {
+        display: none !important; /* Supprime l'icône de lecture */
+    }
+    
+    video::-webkit-media-controls-panel {
+        display: none !important; /* Cache le panneau des contrôles */
+    }
     
     .home-content {
       order: 0;
       margin: 20px; /* Adjust margin as needed */
     }
 }
+
