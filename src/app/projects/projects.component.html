@@ -1,71 +1,201 @@
-<body>
+<section class="projects-section">
     <div class="container">
-        <div class="title"><span class="my">my</span><span class="Projects">Projects</span></div>
-        <div class="project">
-            <video autoplay muted loop id="background-video">
-                <source src="cinema2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="overlay">
-                <h3>Jakarta EE Cinema Reservation Web App</h3>
-                <p>Cinema Reservation App With CRUD.</p>
-                <a href="https://github.com/hvsssen/CinemaReservationJavaJEE" target="_blank">Github repository</a>
+        <div class="title"><span>My Projects</span></div>
+        <div class="projects-grid">
+            <!-- Recent Projects -->
+            <div class="project featured-project" style="--delay: 0s;">
+                <div class="project-image">
+                    <img src="homepage (2).png" alt="Farm Management App with AI">
+                </div>
+                <div class="overlay">
+                    <h3>Farm Management App with AI</h3>
+                    <p>A web application that integrates AI models for intelligent crop and livestock management, offering predictions and recommendations for farmers.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">YOLO</span>
+                        <span class="tech-tag">React</span>
+                    </div>
+                    <div class="impact">
+                        <strong>Impact:</strong> Helps optimize agricultural productivity using data-driven insights.
+                    </div>
+                    <a  target="_blank">Private Github repository</a>
+                </div>
             </div>
-        </div>
-        <div class="project">
-            <video autoplay muted loop id="background-video">
-                <source src="licenseplatereco.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="overlay">
-                <h3>License Plate Recognition AI Model</h3>
-                <p>AI Model for real-time License Plate Recognition using YOLOv8, Roboflow, and Google Colab.</p>
-                <a href="https://github.com/hvsssen/licenseplateRecoyolov8" target="_blank">Github repository</a>
+
+            <div class="project featured-project" style="--delay: 0.1s;">
+                <div class="project-image">
+                    <img src="auto2.png" alt="AutoWaid Frontend">
+                </div>
+                <div class="overlay">
+                    <h3>AutoWaid Frontend (Flutter)</h3>
+                    <p>A cross-platform mobile app frontend for a towing and roadside assistance service.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Cross-platform</span>
+                    </div>
+                    <div class="impact">
+                        <strong>Impact:</strong> Provides an intuitive, responsive, and user-friendly interface for clients to request assistance.
+                    </div>
+                    <a href="https://github.com/hvsssen/PfaAutowAid" target="_blank">Github repository</a>
+                </div>
             </div>
-        </div>
+
+            <div class="project featured-project" style="--delay: 0.2s;">
+                <div class="project-image">
+                    <video autoplay muted loop>
+                        <source src="auuto.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="overlay">
+                    <h3>AutoWaid Backend (Spring Boot)</h3>
+                    <p>The backend services powering AutoWaid, managing user requests, service providers, and real-time updates.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">REST APIs</span>
+                    </div>
+                    <div class="impact">
+                        <strong>Impact:</strong> Ensures reliable and scalable backend operations for the mobile app.
+                    </div>
+                    <a href="https://github.com/hvsssen/PfaAuTowAidBackEnd" target="_blank">Github repository</a>
+                </div>
+            </div>
+
+            <div class="project featured-project in-progress" style="--delay: 0.3s;">
+                <div class="project-image">
+                    <img src="586.png" alt="AI DevOps Agent">
+                </div>
+                <div class="overlay">
+                    <h3>AI Agent for DevOps Automation <span class="status-badge">In Progress</span></h3>
+                    <p>An AI-powered DevOps assistant leveraging the Model Context Protocol (MCP) to automate cloud deployments and CI/CD tasks through natural language commands.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">Azure</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                        <span class="tech-tag">ArgoCD</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">MCP</span>
+                    </div>
+                    <div class="impact">
+                        <strong>Impact:</strong> Simplifies DevOps workflows by enabling conversational infrastructure automation.
+                    </div>
+                    <a href="#" target="_blank">Github repository</a>
+                </div>
+            </div>
+
+            <!-- Previous Projects -->
+            <div class="project" style="--delay: 0.4s;">
+                <video autoplay muted loop>
+                    <source src="cinema2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="overlay">
+                    <h3>Jakarta EE Cinema Reservation Web App</h3>
+                    <p>Cinema Reservation App With CRUD operations and user authentication.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Jakarta EE</span>
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Web App</span>
+                    </div>
+                    <div class="impact">
+                        <strong>Impact:</strong> Demonstrates enterprise Java development skills with real-world booking system functionality.
+                    </div>
+                    <a href="https://github.com/hvsssen/CinemaReservationJavaJEE" target="_blank">Github repository</a>
+                </div>
+            </div>
+            
+            <div class="project" style="--delay: 0.5s;">
+                <video autoplay muted loop>
+                    <source src="licenseplatereco.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="overlay">
+                    <h3>License Plate Recognition AI Model</h3>
+                    <p>AI Model for real-time License Plate Recognition using YOLOv8, Roboflow, and Google Colab.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">YOLOv8</span>
+                        <span class="tech-tag">AI/ML</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                    <div class="impact">
+                        <strong>Impact:</strong> Enables automated vehicle identification for security and traffic management systems.
+                    </div>
+                    <a href="https://github.com/hvsssen/licenseplateRecoyolov8" target="_blank">Github repository</a>
+                </div>
+            </div>
         
-        <div class="project">
-            <img src="searchengine.jpg" alt="autowaid">
+        <div class="project" style="--delay: 0.6s;">
+            <img src="searchengine.jpg" alt="Java Search Engine">
             <div class="overlay">
                 <h3>Java Search Engine</h3>
                 <p>A simple search engine built in Java, focusing on indexing and searching text-based data efficiently using algorithms like keyword matching and ranking.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Algorithms</span>
+                    <span class="tech-tag">Data Structures</span>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Showcases advanced data structures and search algorithms for efficient information retrieval.
+                </div>
                 <a href="https://github.com/hvsssen/Search-engine" target="_blank">Github repository</a>
             </div>
         </div>
         
-        <div class="project">
-            <img src="autowaid1.jpg" alt="autowaid">
-            <div class="overlay">
-                <h3>Flutter Towing Services App</h3>
-                <p>Currently working on a mobile application built with Flutter to connect users with nearby towing services, helping in emergencies on the road. The app is still in development.</p>
-                <a href="" target="_blank">Github repository</a>
-            </div>
-        </div>
-        
-        <div class="project">
-            <img src="todolist.png" alt="todolist">
+        <div class="project" style="--delay: 0.7s;">
+            <img src="todolist.png" alt="Django ToDoList">
             <div class="overlay">
                 <h3>Django ToDoList</h3>
                 <p>A simple To-Do List app built with Django that allows users to manage tasks with features like adding, editing, and deleting tasks.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Web App</span>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Demonstrates full-stack Python web development with user-friendly task management functionality.
+                </div>
                 <a href="https://github.com/hvsssen/todolistdjangoapp" target="_blank">Github repository</a>
             </div>
         </div>
         
-        <div class="project">
-            <img src="network.png" alt="networking">
+        <div class="project" style="--delay: 0.8s;">
+            <img src="network.png" alt="Network Simulations">
             <div class="overlay">
                 <h3>Network Simulations</h3>
                 <p>Simulations of network configurations and device setups, providing insights into network topologies and communication protocols.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Networking</span>
+                    <span class="tech-tag">Simulation</span>
+                    <span class="tech-tag">Protocols</span>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Provides hands-on experience with network design and protocol analysis for infrastructure planning.
+                </div>
             </div>
         </div>
 
-        <div class="project">
-            <img src="banque.jpg" alt="banque">
+        <div class="project" style="--delay: 0.9s;">
+            <img src="banque.jpg" alt="Java Bank">
             <div class="overlay">
                 <h3>Java Bank</h3>
                 <p>A simple banking application built with Java, allowing users to manage accounts, transfer funds, and view transaction history. The project focuses on object-oriented programming and data management principles.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">OOP</span>
+                    <span class="tech-tag">Banking System</span>
+                </div>
+                <div class="impact">
+                    <strong>Impact:</strong> Demonstrates secure financial software development with robust account management and transaction processing.
+                </div>
                 <a href="https://github.com/hvsssen/Banquejava" target="_blank">Github repository</a>
             </div>
         </div>
+        </div>
     </div>
-</body>
+</section>

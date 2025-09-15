@@ -32,7 +32,7 @@ export class ContactComponent {
       
     emailjs.init('gvs1DEwyfkG8HahCv');
     let response =await emailjs
-      .send('service_20sf55u', 'template_3dz39yt', {
+      .send('service_v2t7ouc', 'template_3dz39yt', {
         to_name: this.form.value.to_name,
         from_name: this.form.value.from_name,
         message: this.form.value.message,

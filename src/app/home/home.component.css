@@ -17,7 +17,7 @@
     z-index: 2;
     max-width: 600px;
     align-items: flex-start;
-    margin-left: 20px;
+    margin-left: 200px;
     justify-content: flex-start;
 }
   
@@ -159,5 +159,26 @@
       order: 0;
       margin: 20px; /* Adjust margin as needed */
     }
+}
+
+/* Component Spacing and Layout */
+app-resume, 
+app-skills, 
+app-projects, 
+app-contact {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure smooth scrolling between sections */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove any default margins that might cause gaps */
+body {
+    margin: 0;
+    padding: 0;
 }
 
