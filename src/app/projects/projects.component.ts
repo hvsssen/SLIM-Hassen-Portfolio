@@ -38,7 +38,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/cnn_vgg16_lung_cancer_detection' }],
       category: 'AI/ML',
       featured: true
-    },
+    },        
     {
       id: 2,
       title: 'Customer Churn Prediction - Machine Learning',

@@ -9,7 +9,7 @@
         <div class="projects-grid">
             @for (project of projects; track project.id) {
                 <div class="project-card" 
-                     [class.ai-project]="project.category === 'AI'" 
+                     [class.ai-project]="project.category === 'AI/ML'" 
                      [class.featured]="project.featured"
                      [style.animation-delay.s]="$index * 0.1">
                     

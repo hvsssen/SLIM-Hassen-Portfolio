@@ -1,17 +1,14 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import * as emailjs from '@emailjs/browser';
 import { from } from 'rxjs';
-import{ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [RouterOutlet,ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
