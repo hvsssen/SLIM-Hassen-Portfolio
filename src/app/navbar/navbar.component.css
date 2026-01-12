@@ -49,14 +49,20 @@ nav.sticky {
   font-weight: 500;
   font-size: 35px;
   padding-left: 6px;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #2076e6;
 }
 
 .my {
-  color: #330ddb;
+  color: #2076e6;
 }
 
 .portfolio {
-  color: #15b632;
+  color: #333;
 }
 
 nav.sticky .my {
@@ -96,10 +102,16 @@ nav.sticky .nav-links li a:hover {
   color: #0044ff;
 }
 
+.nav-links li a.activebutton {
+  color: #2076e6;
+  border-bottom: 2px solid #2076e6;
+}
+
 /* Social Media Icons */
 .media-icons {
   display: flex;
-  align-items: center ;
+  align-items: center;
+  gap: 10px;
 }
 
 .media-icons a img {
@@ -121,6 +133,54 @@ nav.sticky .nav-links li a:hover {
 
 .media-icons a:not(:hover) img {
   opacity: 0.5;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid #4070f4;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 8px;
+  margin-right: 10px;
+}
+
+.theme-toggle:hover {
+  background: #4070f4;
+  transform: rotate(20deg) scale(1.1);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  color: #4070f4;
+  transition: color 0.3s ease;
+}
+
+.theme-toggle:hover svg {
+  color: #ffffff;
+}
+
+nav.sticky .theme-toggle {
+  border-color: #ffffff;
+}
+
+nav.sticky .theme-toggle svg {
+  color: #ffffff;
+}
+
+nav.sticky .theme-toggle:hover {
+  background: #ffffff;
+}
+
+nav.sticky .theme-toggle:hover svg {
+  color: #2076e6;
 }
 
 /* Responsive Navbar */

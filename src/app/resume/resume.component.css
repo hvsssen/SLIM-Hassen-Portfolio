@@ -258,6 +258,17 @@ section .title span::after{
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
+/* Dark mode for timeline items */
+body.dark-mode .education-details li {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  border: 1px solid #475569;
+}
+
+body.dark-mode .education-details li:hover {
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+  border-color: #64748b;
+}
+
 .education-details li:hover {
   transform: translateX(10px);
   background: #f8fafc;
