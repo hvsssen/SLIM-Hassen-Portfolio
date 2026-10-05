@@ -1,14 +1,23 @@
 <section class="home" id="home">
     <div class="home-content">
         <div class="text">
-          <div class="text-one">Hello,</div>
-          <div class="text-two">I'm Slim Hassen</div>
-          <div class="text-three">Computer Science Engineering Student</div>
+          <div class="text-one">Hello, I'm</div>
+          <div class="text-two">Hassen Slim</div>
+          <div class="text-three">Software Engineer | Applied AI &amp; Intelligent Systems</div>
+          <p class="text-four">
+            I build intelligent systems for real-world problems, across backend architecture,
+            data-intensive applications and applied machine learning. Currently pursuing an M2 at
+            Université Grenoble Alpes and exploring applications of AI and software in healthcare
+            and other technically demanding domains.
+          </p>
         </div>
-        
+
         <div class="button">
-            <a href="CV.pdf" download="CV.pdf">
-                <button>Download CV</button>
+            <a routerLink="/projects">
+                <button type="button" class="btn-primary">View my work</button>
+            </a>
+            <a href="Cv__SLIM_Hassen.pdf" download="Hassen-Slim-CV.pdf">
+                <button type="button" class="btn-secondary">Download CV</button>
             </a>
         </div>
       </div>
@@ -18,9 +27,10 @@
     </video>
 
   </section>
-  
+
   <app-resume></app-resume>
-  <app-skills></app-skills>
+  <app-experience></app-experience>
   <app-projects></app-projects>
+  <app-skills></app-skills>
+  <app-education></app-education>
   <app-contact></app-contact>
-  

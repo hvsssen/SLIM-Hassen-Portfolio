@@ -91,46 +91,63 @@
 }
 
 /* Dark mode for contact info */
-body.dark-mode .contact-info {
+:host-context(body.dark-mode) .contact-info {
     background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     border: 1px solid #475569;
     color: #e2e8f0;
 }
 
-body.dark-mode .contact-info h2 {
+:host-context(body.dark-mode) .contact-info h2 {
     color: #f1f5f9;
 }
 
-body.dark-mode .contact-info p {
+:host-context(body.dark-mode) .contact-info p {
     color: #cbd5e1;
 }
 
-body.dark-mode .contact-info .info {
+:host-context(body.dark-mode) .contact-info .info {
     background: #0f172a;
     border: 1px solid #475569;
 }
 
-body.dark-mode .contact-info .info input {
+:host-context(body.dark-mode) .contact-info .info input {
     background: #1e293b;
     border-color: #475569;
     color: #e2e8f0;
 }
 
 .contact-info h2 {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 25px;
+    line-height: 1.45;
+    margin-bottom: 18px;
     color: #1e293b;
 }
 
 .contact-info p {
-    margin-bottom: 25px;
+    margin-bottom: 16px;
     line-height: 1.7;
     color: #374151;
 }
 
+.contact-info .availability {
+    font-size: 15px;
+    color: #1d4ed8;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 26px;
+}
+
+:host-context(body.dark-mode) .contact-info .availability {
+    color: #c7d2fe !important;
+    background: rgba(79, 70, 229, 0.18);
+    border-color: #4f46e5;
+}
+
 .contact-info .info {
-    margin-bottom: 25px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 15px;
@@ -138,6 +155,10 @@ body.dark-mode .contact-info .info input {
     background: #ffffff;
     border-radius: 10px;
     transition: all 0.3s ease;
+}
+
+.contact-info .info p {
+    margin-bottom: 0;
 }
 
 .contact-info .info:hover {
@@ -215,16 +236,16 @@ body.dark-mode .contact-info .info input {
 }
 
 /* Dark mode for contact form */
-body.dark-mode .contact-form {
+:host-context(body.dark-mode) .contact-form {
     background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     border: 1px solid #475569;
 }
 
-body.dark-mode .contact-form h2 {
+:host-context(body.dark-mode) .contact-form h2 {
     color: #f1f5f9;
 }
 
-body.dark-mode .contact-form label {
+:host-context(body.dark-mode) .contact-form label {
     color: #cbd5e1;
 }
 
@@ -391,7 +412,7 @@ body.dark-mode .contact-form label {
     
     .contact-info h2,
     .contact-form h2 {
-        font-size: 24px;
+        font-size: 20px;
     }
     
     .socials {
@@ -421,7 +442,7 @@ body.dark-mode .contact-form label {
     
     .contact-info h2,
     .contact-form h2 {
-        font-size: 22px;
+        font-size: 19px;
     }
     
     .contact-info p {

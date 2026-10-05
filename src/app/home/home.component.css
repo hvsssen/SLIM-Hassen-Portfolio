@@ -3,82 +3,141 @@
 .home {
     position: relative;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     text-align: left;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 120px 5% 80px;
     overflow: hidden;
     font-family: 'Ubuntu', sans-serif;
 }
-  
+
 .home-content {
     position: relative;
     z-index: 2;
-    max-width: 600px;
-    align-items: flex-start;
-    margin-left: 200px;
-    justify-content: flex-start;
-    animation: slideInLeft 1s ease-out;
+    max-width: 680px;
+    width: 100%;
+    margin-left: min(10vw, 160px);
+    padding: 36px 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    animation: slideInLeft 0.8s ease-out;
 }
 
 @keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-40px);
     }
     to {
         opacity: 1;
         transform: translateX(0);
     }
 }
-  
+
 .text-one {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: #6b7280;
 }
-  
+
 .text-two {
     font-size: 3rem;
-    font-weight: bold;
+    font-weight: 700;
     color: #111827;
+    line-height: 1.2;
+    min-height: 3.6rem;
 }
-  
+
 .text-three {
-    font-size: 1.8rem;
+    font-size: 1.35rem;
+    font-weight: 500;
     color: #1d4ed8;
-    margin-top: 10px;
+    margin-top: 8px;
+    line-height: 1.4;
 }
-  
+
 .text-four {
-    font-size: 1.2rem;
-    color: #6b7280;
-    margin-top: 10px;
+    font-size: 1rem;
+    color: #374151;
+    margin-top: 18px;
+    line-height: 1.7;
+    max-width: 60ch;
 }
-  
+
 .button {
-    margin-top: 20px;
-    animation: fadeIn 1s ease-out 1s backwards;
+    margin-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    animation: fadeIn 0.8s ease-out 0.4s backwards;
 }
-  
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.button a {
+    text-decoration: none;
+}
+
 .button button {
-    padding: 8px 14px;
-  font-size: 18px;
-  font-weight: 500;
-  background: #4070f4;
-  color: #fff;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 5px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    font-family: 'Ubuntu', sans-serif;
 }
-  
-.button button:hover {
+
+.btn-primary {
+    background: #4070f4;
+    color: #fff;
+}
+
+.btn-primary:hover {
     background: #fff;
-  color: #4070f4;
-  border-color: #4070f4;
+    color: #4070f4;
+    border-color: #4070f4;
 }
-  
+
+.btn-secondary {
+    background: transparent;
+    color: #1d4ed8;
+    border-color: #4070f4;
+}
+
+.btn-secondary:hover {
+    background: #4070f4;
+    color: #fff;
+}
+
+/* Dark mode */
+:host-context(body.dark-mode) .home-content {
+    background: rgba(15, 23, 42, 0.82);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+:host-context(body.dark-mode) .text-one {
+    color: #94a3b8;
+}
+
+:host-context(body.dark-mode) .text-two {
+    color: #f1f5f9;
+}
+
+:host-context(body.dark-mode) .text-three {
+    color: #818cf8;
+}
+
+:host-context(body.dark-mode) .text-four {
+    color: #cbd5e1;
+}
+
 /* Background Video */
 #background-video {
     position: absolute;
@@ -88,140 +147,120 @@
     height: 100%;
     object-fit: cover;
     z-index: 1;
-    pointer-events: none; /* Désactive les interactions */
-    user-select: none; /* Empêche la sélection */
-    -webkit-touch-callout: none; 
-}
-  
-/* Responsive Styles: On screens under 768px, move the video on top */
-@media screen and (max-width: 768px) {
-    .home {
-      display: flex;
-      flex-direction: column;
-      height: auto; /* Allow container to grow based on content */
-    }
-    
-    #background-video {
-      position: static; /* Remove absolute positioning so it becomes part of the normal flow */
-      order: -1;         /* Place the video before the .home-content */
-      width: 100%;
-      height: auto;
-      padding-top: 80px;
-      pointer-events: none; /* Empêche toute interaction avec la vidéo */
-      user-select: none; /* Empêche la sélection du contenu */
-      -webkit-touch-callout: none; 
-  }
-  
-  /* Supprime tous les contrôles du lecteur vidéo */
-  video::-webkit-media-controls {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-start-playback-button {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-enclosure {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-panel {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-overlay-play-button {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-play-button {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-timeline {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-current-time-display {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-time-remaining-display {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-seek-back-button {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-seek-forward-button {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-fullscreen-button {
-      display: none !important;
-  }
-
-/* Floating particles for home */
-.home-particle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #4666FF;
-    border-radius: 50%;
-    box-shadow: 0 0 15px #4666FF, 0 0 30px #4666FF, 0 0 45px #4666FF;
-    animation: homeFloat linear infinite;
     pointer-events: none;
-    z-index: 1;
+    user-select: none;
+    -webkit-touch-callout: none;
 }
 
-@keyframes homeFloat {
-    0% {
-        transform: translateY(0) translateX(0) scale(1) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) translateX(100px) scale(0) rotate(360deg);
-        opacity: 0;
-    }
-}
-  
-  video::-webkit-media-controls-mute-button {
-      display: none !important;
-  }
-  
-  video::-webkit-media-controls-volume-slider {
-      display: none !important;
-  }
-    .home-content {
-      order: 0;
-      margin: 20px; /* Adjust margin as needed */
-    }
+video::-webkit-media-controls,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-play-button {
+    display: none !important;
 }
 
-/* Component Spacing and Layout */
-app-resume, 
-app-skills, 
-app-projects, 
+/* Section spacing */
+app-resume,
+app-experience,
+app-projects,
+app-skills,
+app-education,
 app-contact {
     display: block;
     margin: 0;
     padding: 0;
 }
 
-/* Ensure smooth scrolling between sections */
-html {
-    scroll-behavior: smooth;
+/* Responsive */
+@media screen and (max-width: 1024px) {
+    .home-content {
+        margin-left: 0;
+        max-width: 100%;
+    }
+
+    .text-two {
+        font-size: 2.5rem;
+        min-height: 3rem;
+    }
+
+    .text-three {
+        font-size: 1.2rem;
+    }
 }
 
-/* Remove any default margins that might cause gaps */
-body {
-    margin: 0;
-    padding: 0;
+@media screen and (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: auto;
+        padding: 0 0 50px;
+    }
+
+    #background-video {
+        position: static;
+        order: -1;
+        width: 100%;
+        height: 38vh;
+        object-fit: cover;
+        padding-top: 70px;
+    }
+
+    .home-content {
+        order: 0;
+        margin: -40px 5% 0;
+        width: auto;
+        padding: 28px 24px;
+    }
+
+    .text-two {
+        font-size: 2.1rem;
+        min-height: 2.6rem;
+    }
+
+    .text-three {
+        font-size: 1.1rem;
+    }
+
+    .text-four {
+        font-size: 0.95rem;
+    }
 }
 
+@media screen and (max-width: 480px) {
+    .home-content {
+        margin: -30px 4% 0;
+        padding: 22px 18px;
+    }
+
+    .text-two {
+        font-size: 1.8rem;
+        min-height: 2.2rem;
+    }
+
+    .text-three {
+        font-size: 1rem;
+    }
+
+    .button {
+        gap: 10px;
+    }
+
+    .button button {
+        padding: 10px 18px;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .button a {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-content,
+    .button {
+        animation: none;
+    }
+}

@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="portfolio" content="width=device-width, initial-scale=1.0">
-  <title>myPortfolio</title>
-</head>
-<body>
-  <app-navbar></app-navbar> 
-  <router-outlet></router-outlet>  
-  
-</body>
-</html>
+<app-navbar></app-navbar>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <span class="footer-name">Hassen Slim</span>
+      <span class="footer-role">Software Engineer | Applied AI &amp; Intelligent Systems</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/slim-hassen-12b4402bb" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/hvsssen" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hvsssen7&#64;gmail.com" target="_blank" rel="noopener noreferrer">Email</a>
+    </div>
+    <div class="footer-copy">&copy; {{ year }} Hassen Slim</div>
+  </div>
+</footer>

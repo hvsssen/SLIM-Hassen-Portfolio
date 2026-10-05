@@ -2,31 +2,57 @@
   <div class="nav-content">
       <div class="logo">
           <a routerLink="home" routerLinkActive="activebutton" ariaCurrentWhenActive="page">
-              <span class="my">my</span><span class="portfolio">Portfolio</span>
+              <span class="my">Hassen</span>&nbsp;<span class="portfolio">Slim</span>
           </a>
       </div>
 
-      <div class="menu-toggle" (click)="toggleMenu()">
+      <div class="menu-toggle" (click)="toggleMenu()" role="button" tabindex="0"
+           aria-label="Toggle navigation menu" (keydown.enter)="toggleMenu()">
         ☰
-    </div>
+      </div>
 
     <ul class="nav-links" [ngClass]="{'active': menuOpen}">
         <li><a routerLink="home" routerLinkActive="activebutton" (click)="closeMenu()">Home</a></li>
-        <li><a routerLink="resume" routerLinkActive="activebutton" (click)="closeMenu()">Resume</a></li>
-        <li><a routerLink="skills" routerLinkActive="activebutton" (click)="closeMenu()">Skills</a></li>
+        <li><a routerLink="about" routerLinkActive="activebutton" (click)="closeMenu()">About</a></li>
+        <li><a routerLink="experience" routerLinkActive="activebutton" (click)="closeMenu()">Experience</a></li>
         <li><a routerLink="projects" routerLinkActive="activebutton" (click)="closeMenu()">Projects</a></li>
+        <li><a routerLink="skills" routerLinkActive="activebutton" (click)="closeMenu()">Skills</a></li>
+        <li><a routerLink="education" routerLinkActive="activebutton" (click)="closeMenu()">Education</a></li>
         <li><a routerLink="contact" routerLinkActive="activebutton" (click)="closeMenu()">Contact</a></li>
     </ul>
 
       <div class="media-icons">
+          <button type="button" class="theme-toggle" (click)="toggleTheme()"
+                  [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+                  [attr.aria-pressed]="isDarkMode">
+            @if (isDarkMode) {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+            } @else {
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            }
+          </button>
           <a href="https://www.linkedin.com/in/slim-hassen-12b4402bb" target="_blank" rel="noopener noreferrer">
-              <img src="linkedin (2).png" alt="linkedin">
+              <img src="linkedin (2).png" alt="LinkedIn">
           </a>
           <a href="https://github.com/hvsssen" target="_blank" rel="noopener noreferrer">
-              <img src="github (1).png" alt="github">
+              <img src="github (1).png" alt="GitHub">
           </a>
-          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hvsssen7@gmail.com" target="_blank">
-              <img src="gmail (2).png" alt="mail">
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=hvsssen7&#64;gmail.com" target="_blank" rel="noopener noreferrer">
+              <img src="gmail (2).png" alt="Email">
           </a>
       </div>
   </div>

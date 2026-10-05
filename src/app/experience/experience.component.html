@@ -1,0 +1,54 @@
+<section class="experience" id="experience">
+  <div class="content">
+    <div class="title"><span>Experience</span></div>
+
+    <div class="experience-list">
+      @for (job of experiences; track job.id; let first = $first) {
+        <article class="experience-card" [class.lead]="first">
+          <header class="experience-header">
+            <div class="experience-heading">
+              <h3 class="experience-role">{{ job.role }}</h3>
+              <div class="experience-org">
+                @if (job.organizationUrl) {
+                  <a [href]="job.organizationUrl" target="_blank" rel="noopener noreferrer">{{ job.organization }}</a>
+                } @else {
+                  <span>{{ job.organization }}</span>
+                }
+              </div>
+              <div class="experience-context">{{ job.context }}</div>
+            </div>
+            <div class="experience-meta">
+              <span class="experience-period">{{ job.period }}</span>
+              <span class="experience-location">{{ job.location }}</span>
+            </div>
+          </header>
+
+          <p class="experience-summary">{{ job.summary }}</p>
+
+          @if (job.highlights?.length) {
+            <div class="experience-highlights">
+              @for (highlight of job.highlights; track highlight.label) {
+                <div class="highlight">
+                  <span class="highlight-value">{{ highlight.value }}</span>
+                  <span class="highlight-label">{{ highlight.label }}</span>
+                </div>
+              }
+            </div>
+          }
+
+          <ul class="experience-bullets">
+            @for (bullet of job.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+
+          <div class="tech-stack">
+            @for (tech of job.technologies; track tech) {
+              <span class="tech-badge">{{ tech }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

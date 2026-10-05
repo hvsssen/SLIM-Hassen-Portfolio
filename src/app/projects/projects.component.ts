@@ -1,13 +1,24 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+type ProjectCategory = 'AI/ML' | 'Full-Stack' | 'Big Data' | 'DevOps' | 'Data Science';
+
+interface Filter {
+  label: string;
+  /** null means "no filter": show everything. */
+  category: ProjectCategory | null;
+  count: number;
+}
 
 interface Project {
   id: number;
   title: string;
+  /** Problem -> approach -> result. Technologies live in their own list. */
   description: string;
+  result?: string;
   technologies: string[];
   githubLinks: { label: string; url: string }[];
-  category: 'AI/ML' | 'Full-Stack' | 'Big Data' | 'DevOps' | 'Data Science';
+  category: ProjectCategory;
   featured: boolean;
 }
 
@@ -18,80 +29,101 @@ interface Project {
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent implements OnInit, AfterViewInit {
+export class ProjectsComponent {
 
   projects: Project[] = [
     {
-      id: 10,
-      title: 'Agentic AI + DevOps - Pipeline CI/CD Automation',
-      description: 'Intelligent automated CI/CD pipeline using Azure DevOps and AI agents for continuous deployment of Python applications. Implements DevOps best practices with automated testing, static code analysis, Docker containerization, and multi-environment deployment. Infrastructure as Code configuration with YAML pipelines and artificial intelligence for workflow optimization.',
-      technologies: ['Azure DevOps', 'Python', 'Docker', 'CI/CD', 'YAML', 'Infrastructure as Code', 'Automation', 'Agentic AI'],
-      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/az_devops_pipeline' }],
+      id: 1,
+      title: 'Lung Cancer Detection with Deep Learning',
+      description:
+        'Reading lung histopathology slides is slow and requires an expert. I trained a classifier to separate cancerous from healthy tissue using transfer learning on VGG16, with preprocessing and augmentation on the LC25000 dataset.',
+      result: '98% test accuracy on the LC25000 dataset.',
+      technologies: ['Python', 'TensorFlow / Keras', 'VGG16', 'Transfer Learning', 'Medical Imaging'],
+      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/cnn_vgg16_lung_cancer_detection' }],
       category: 'AI/ML',
       featured: true
     },
     {
-      id: 1,
-      title: 'Lung Cancer Detection - Deep Learning',
-      description: 'Automatic lung cancer detection system using transfer learning with VGG16. Implemented in Python with TensorFlow/Keras on medical CT-scan images. Achieves high accuracy in classifying malignant/benign pulmonary nodules.',
-      technologies: ['Python', 'TensorFlow', 'Keras', 'VGG16', 'Computer Vision', 'Deep Learning', 'Medical Imaging'],
-      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/cnn_vgg16_lung_cancer_detection' }],
-      category: 'AI/ML',
-      featured: true
-    },        
-    {
       id: 2,
-      title: 'Customer Churn Prediction - Machine Learning',
-      description: 'Customer churn prediction system using Random Forest, XGBoost and Stochastic Gradient Boosting. Comparative analysis of ML algorithms with detailed performance metrics. Provides actionable insights for customer retention.',
-      technologies: ['Python', 'Scikit-learn', 'XGBoost', 'Random Forest', 'Pandas', 'Machine Learning', 'Data Science'],
-      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/ChurnDetection_RF_XGBoost_SG' }],
-      category: 'AI/ML',
+      title: 'Agentic AI for CI/CD Pipeline Automation',
+      description:
+        'Deploying a Python application through Azure DevOps involved repeated manual steps. I built a pipeline driven by AI agents that handles testing, static analysis, containerization and multi-environment deployment, with the infrastructure described as code in YAML.',
+      technologies: ['Azure DevOps', 'Python', 'Docker', 'Agentic AI', 'Infrastructure as Code', 'CI/CD'],
+      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/az_devops_pipeline' }],
+      category: 'DevOps',
       featured: true
     },
     {
       id: 3,
-      title: 'License Plate Recognition - YOLOv8',
-      description: 'Automatic license plate detection and recognition system using YOLOv8. Complete pipeline with real-time detection on video streams, OCR character extraction, and post-processing. Application for security and smart parking management.',
-      technologies: ['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'Computer Vision', 'OCR', 'Deep Learning'],
-      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/licenseplateRecoyolov8' }],
-      category: 'AI/ML',
+      title: 'Tunisia Geospatial Network Analysis',
+      description:
+        'Urban accessibility in Tunisia is hard to reason about without measurements. I built road networks from OpenStreetMap data, computed connectivity metrics on the resulting graphs, and produced interactive maps of the results.',
+      technologies: ['Python', 'OSMnx', 'NetworkX', 'GeoPandas', 'Jupyter'],
+      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/tunisia-geospatial-analysis' }],
+      category: 'Data Science',
       featured: true
     },
     {
       id: 4,
-      title: 'Farm Management AI - Intelligent Full-Stack Platform',
-      description: 'Intelligent farm management platform integrating AI for crop optimization and yield prediction. Spring Boot backend with integrated ML models and modern React interface with real-time visualizations and AI-based recommendations.',
-      technologies: ['Java', 'Spring Boot', 'React', 'TypeScript', 'Machine Learning', 'REST API', 'PostgreSQL', 'AI Agriculture'],
+      title: 'Farm Management AI Platform',
+      description:
+        'Farms detect problems in crops and livestock late, when they are already costly. I built a full-stack platform where two YOLOv8 models flag anomalies from field images and surface them in a management dashboard.',
+      result: 'Average detection accuracy of 92% across both models.',
+      technologies: ['Java', 'Spring Boot', 'React', 'YOLOv8', 'MongoDB', 'REST API'],
       githubLinks: [
         { label: 'Spring Backend', url: 'https://github.com/hvsssen/FarmManagementBack_Spring' },
-        { label: 'React AI Frontend', url: 'https://github.com/hvsssen/FarmManagementAI_FrontReact' }
+        { label: 'React Frontend', url: 'https://github.com/hvsssen/FarmManagementAI_FrontReact' }
       ],
-      category: 'AI/ML',
+      category: 'Full-Stack',
       featured: true
     },
     {
       id: 5,
-      title: 'Lambda Architecture - Big Data Complaints Analysis',
-      description: 'Complete Lambda architecture implementation for real-time and batch customer complaints analysis. Combines Kafka, Spark, and Hadoop. Enables predictive trend analysis with parallel batch and streaming processing for real-time business insights.',
-      technologies: ['Apache Kafka', 'Apache Spark', 'Hadoop', 'Java', 'Big Data', 'Lambda Architecture', 'Stream Processing'],
+      title: 'License Plate Recognition with YOLOv8',
+      description:
+        'Reading plates from a live video stream needs detection and text extraction to work together. I built an end-to-end pipeline: YOLOv8 locates the plate, OCR extracts the characters, and post-processing cleans up the result frame by frame.',
+      technologies: ['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'OCR'],
+      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/licenseplateRecoyolov8' }],
+      category: 'AI/ML',
+      featured: false
+    },
+    {
+      id: 6,
+      title: 'Customer Churn Prediction',
+      description:
+        'Retention teams need to know which customers are about to leave. I compared Random Forest, XGBoost and gradient boosting ensembles on customer data, tuning each one and comparing them on the metrics that matter for retention.',
+      result: '87% precision and 85% recall on the test set.',
+      technologies: ['Python', 'scikit-learn', 'XGBoost', 'Random Forest', 'Pandas'],
+      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/ChurnDetection_RF_XGBoost_SG' }],
+      category: 'AI/ML',
+      featured: false
+    },
+    {
+      id: 7,
+      title: 'Lambda Architecture for Complaints Analysis',
+      description:
+        'Customer complaints need both historical depth and an immediate view. I implemented a Lambda architecture where Kafka feeds a streaming layer for live signals while Spark and Hadoop recompute the batch layer over the full history.',
+      technologies: ['Apache Kafka', 'Apache Spark', 'Hadoop', 'Java', 'Stream Processing'],
       githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/BigData-LambdaArchitecture-ComplaintsAnalysisSystem' }],
       category: 'Big Data',
       featured: false
     },
     {
-      id: 6,
-      title: 'Tunisia Geospatial Analysis - Data Science',
-      description: 'In-depth analysis of Tunisia\'s road network and urban infrastructure using OpenStreetMap. Generates interactive visualizations, calculates connectivity metrics, and analyzes urban accessibility. Geospatial data science project with urban planning applications.',
-      technologies: ['Python', 'OSMnx', 'NetworkX', 'GeoPandas', 'Jupyter', 'Data Visualization', 'GIS', 'OpenStreetMap'],
-      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/tunisia-geospatial-analysis' }],
-      category: 'Data Science',
+      id: 8,
+      title: 'Kafka + Spark Streaming Pipeline',
+      description:
+        'A proof of concept for continuous data processing: services publish events to Kafka, Spark Streaming consumes and aggregates them, and a dashboard renders the streaming metrics as they arrive.',
+      technologies: ['Apache Kafka', 'Spark Streaming', 'JavaScript', 'Event-Driven Architecture'],
+      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/kafka-spark-poc' }],
+      category: 'Big Data',
       featured: false
     },
     {
-      id: 7,
-      title: 'AutowAid - Automotive Assistance Platform',
-      description: 'Complete full-stack platform for real-time automotive assistance. Java/Spring Boot backend, cross-platform Flutter mobile application, and web administration dashboard. Integrates geolocation, request management, and real-time notifications.',
-      technologies: ['Java', 'Spring Boot', 'Flutter', 'Dart', 'HTML', 'JavaScript', 'REST API', 'Microservices', 'JWT', 'Geolocation'],
+      id: 9,
+      title: 'AutowAid Roadside Assistance Platform',
+      description:
+        'Drivers who break down need help from whoever is nearby, fast. I built a platform where a Flutter app geolocates the driver, a Spring Boot backend matches and tracks requests, and an admin dashboard supervises them in real time.',
+      technologies: ['Java', 'Spring Boot', 'Flutter', 'REST API', 'JWT', 'Geolocation'],
       githubLinks: [
         { label: 'Java Backend', url: 'https://github.com/hvsssen/PfaAuTowAidBackEnd' },
         { label: 'Flutter Mobile', url: 'https://github.com/hvsssen/PfaAutowAid' },
@@ -101,104 +133,42 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       featured: false
     },
     {
-      id: 8,
-      title: 'Kafka-Spark Pipeline - Real-Time Data Processing',
-      description: 'Proof of concept demonstrating Kafka and Spark Streaming integration for real-time data processing. Microservices architecture for ingestion, processing and visualization of continuous streams. Interactive dashboard for streaming metrics visualization.',
-      technologies: ['Apache Kafka', 'Apache Spark', 'Spark Streaming', 'HTML', 'JavaScript', 'Real-Time Processing', 'Event-Driven'],
-      githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/kafka-spark-poc' }],
-      category: 'Big Data',
-      featured: false
-    },
-    {
-      id: 9,
-      title: 'University Courses Ontology - Semantic Web',
-      description: 'Ontology system for semantic modeling of university courses, prerequisites and academic paths. Developed with RDFLib and SPARQL. Enables intelligent navigation, course recommendation, and automatic path validation. Application of semantic web and knowledge graphs.',
-      technologies: ['Python', 'RDFLib', 'SPARQL', 'Semantic Web', 'Knowledge Graphs', 'Ontology Engineering'],
+      id: 10,
+      title: 'University Courses Ontology',
+      description:
+        'Course prerequisites and academic paths are rules, not rows in a table. I modelled them as an ontology with RDFLib, then used SPARQL queries to navigate the graph, recommend courses and validate a student path automatically.',
+      technologies: ['Python', 'RDFLib', 'SPARQL', 'Knowledge Graphs', 'Semantic Web'],
       githubLinks: [{ label: 'View Project', url: 'https://github.com/hvsssen/UNIVERSITY-COURSES-ONTOLOGY' }],
       category: 'Data Science',
       featured: false
-
     }
   ];
 
-  ngOnInit(): void {
-    this.initAnimations();
-  }
+  filters: Filter[] = this.buildFilters();
+  activeCategory: ProjectCategory | null = null;
+  visibleProjects: Project[] = this.projects;
 
-  ngAfterViewInit(): void {
-    // Animations disabled
-  }
-
-  // Create floating particles
-  createParticles(): void {
-    const section = document.querySelector('.projects-section');
-    if (!section) return;
-
-    for (let i = 0; i < 50; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 20 + 's';
-      particle.style.animationDuration = (15 + Math.random() * 10) + 's';
-      section.appendChild(particle);
+  /** One filter per category actually present, in the order the projects appear. */
+  private buildFilters(): Filter[] {
+    const counts = new Map<ProjectCategory, number>();
+    for (const project of this.projects) {
+      counts.set(project.category, (counts.get(project.category) ?? 0) + 1);
     }
+    return [
+      { label: 'All', category: null, count: this.projects.length },
+      ...[...counts].map(([category, count]) => ({ label: category, category, count }))
+    ];
   }
 
-  // Mouse parallax effect
-  initMouseEffects(): void {
-    document.addEventListener('mousemove', (e) => {
-      const cards = document.querySelectorAll('.project-card');
-      const mouseX = e.clientX / window.innerWidth;
-      const mouseY = e.clientY / window.innerHeight;
-
-      cards.forEach((card: any) => {
-        const rect = card.getBoundingClientRect();
-        const cardCenterX = rect.left + rect.width / 2;
-        const cardCenterY = rect.top + rect.height / 2;
-        
-        const angleX = (e.clientY - cardCenterY) / 25;
-        const angleY = (cardCenterX - e.clientX) / 25;
-
-        card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg)`;
-      });
-
-      // Parallax background
-      const section = document.querySelector('.projects-section') as HTMLElement;
-      if (section) {
-        section.style.backgroundPosition = `${mouseX * 50}px ${mouseY * 50}px`;
-      }
-    });
-
-    // Reset on mouse leave
-    document.addEventListener('mouseleave', () => {
-      const cards = document.querySelectorAll('.project-card');
-      cards.forEach((card: any) => {
-        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-      });
-    });
+  selectCategory(category: ProjectCategory | null): void {
+    this.activeCategory = category;
+    this.visibleProjects = category === null
+      ? this.projects
+      : this.projects.filter(project => project.category === category);
   }
 
-  // Scroll-triggered animations
-  initScrollAnimations(): void {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    const cards = document.querySelectorAll('.project-card');
-    cards.forEach(card => observer.observe(card));
-  }
-
-  initAnimations(): void {
-    document.addEventListener("DOMContentLoaded", () => {
-      const video = document.getElementById("background-video") as HTMLVideoElement;
-      if (video) {
-        video.muted = true;
-      }
-    });
+  /** Maps a category to its badge class, e.g. 'AI/ML' -> 'badge-ai-ml'. */
+  badgeClass(category: string): string {
+    return 'badge-' + category.toLowerCase().replace(/[\/\s]+/g, '-');
   }
 }

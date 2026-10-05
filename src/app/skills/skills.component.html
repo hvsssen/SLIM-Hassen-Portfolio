@@ -1,123 +1,33 @@
 <section class="skills" id="skills">
-    <div class="content">
-      <div class="title"><span>Soft Skills</span></div>
-      <div class="skills-details-centered">
-        <p class="soft-skills-text">
-            I am a highly adaptable and proactive individual with strong problem-solving skills and a passion for continuous learning. My ability to communicate effectively allows me to collaborate seamlessly in diverse teams, fostering a positive and productive work environment. I thrive under pressure, maintaining a solution-oriented mindset even in challenging situations. With a strong sense of organization and attention to detail, I efficiently manage tasks and deadlines. My leadership skills, honed over 10 years as captain of my basketball team, enable me to take initiative, while my empathy and active listening help build meaningful connections with colleagues and clients. I am always eager to learn, grow, and contribute to innovative projects that make an impact.
-        </p>
-        <div class="button">
-          <a href="CV.pdf" download="CV.pdf">
-              <button>Download CV</button>
-          </a>
+  <div class="content">
+    <div class="title"><span>Skills</span></div>
+
+    <div class="skill-groups">
+      @for (group of skillGroups; track group.id) {
+        <div class="skill-group">
+          <h3 class="skill-group-title">{{ group.name }}</h3>
+          <div class="skill-chips">
+            @for (skill of group.skills; track skill.name) {
+              <span class="skill-chip" [class.core]="skill.core">{{ skill.name }}</span>
+            }
+          </div>
         </div>
+      }
+    </div>
+
+    <div class="working-style">
+      <h3 class="working-style-title">How I work</h3>
+      <p class="soft-skills-text">
+        I like problems that need both structure and experimentation: understanding a system before
+        rewriting it, measuring before optimizing, and keeping the result maintainable for the people
+        who come next. Ten years as captain of my basketball team taught me the rest:
+        communicating clearly, taking initiative, and staying useful under pressure.
+      </p>
+      <div class="button">
+        <a href="Cv__SLIM_Hassen.pdf" download="Hassen-Slim-CV.pdf">
+          <button type="button">Download CV</button>
+        </a>
       </div>
     </div>
-  </section>
-  <br>
-  
-  <section class="skills" id="skills">
-    <div class="content">
-        <div class="title"><span>Hard Skills</span></div>
-        <div class="skills-carousel">
-            <div class="skills-track">
-                <div class="skill">
-                    <img src="python.png" alt="Python">
-                    <span>Python</span>
-                </div>
-                <div class="skill">
-                    <img src="icons8-tensorflow-48.png" alt="TensorFlow">
-                    <span>TensorFlow</span>
-                </div>
-                <div class="skill">
-                    <img src="pytorch.png" alt="PyTorch">
-                    <span>PyTorch</span>
-                </div>
-                <div class="skill">
-                    <img src="java.png" alt="Java">
-                    <span>Java</span>
-                </div>
-                <div class="skill">
-                    <img src="spring-boot.png" alt="Spring Boot">
-                    <span>Spring Boot</span>
-                </div>
-                <div class="skill">
-                    <img src="Docker.png" alt="Docker">
-                    <span>Docker</span>
-                </div>
-                <div class="skill">
-                    <img src="icons8-kubernetes-48.png" alt="Kubernetes">
-                    <span>Kubernetes</span>
-                </div>
-                <div class="skill">
-                    <img src="git.png" alt="Git">
-                    <span>Git</span>
-                </div>
-                <div class="skill">
-                    <img src="icons8-mongo-db-64.png" alt="MongoDB">
-                    <span>MongoDB</span>
-                </div>
-                <div class="skill">
-                    <img src="Langchain.png" alt="LangChain">
-                    <span>LangChain</span>
-                </div>
-                <div class="skill">
-                    <img src="langgraph-color.png" alt="LangGraph">
-                    <span>LangGraph</span>
-                </div>
-                <div class="skill">
-                    <img src="angular.png" alt="Angular">
-                    <span>Angular</span>
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="skill">
-                    <img src="python.png" alt="Python">
-                    <span>Python</span>
-                </div>
-                <div class="skill">
-                    <img src="icons8-tensorflow-48.png" alt="TensorFlow">
-                    <span>TensorFlow</span>
-                </div>
-                <div class="skill">
-                    <img src="PyTorch-logo-vector-01.svg" alt="PyTorch">
-                    <span>PyTorch</span>
-                </div>
-                <div class="skill">
-                    <img src="java.png" alt="Java">
-                    <span>Java</span>
-                </div>
-                <div class="skill">
-                    <img src="spring-boot.png" alt="Spring Boot">
-                    <span>Spring Boot</span>
-                </div>
-                <div class="skill">
-                    <img src="docker.png" alt="Docker">
-                    <span>Docker</span>
-                </div>
-                <div class="skill">
-                    <img src="icons8-kubernetes-48.png" alt="Kubernetes">
-                    <span>Kubernetes</span>
-                </div>
-                <div class="skill">
-                    <img src="git.png" alt="Git">
-                    <span>Git</span>
-                </div>
-                <div class="skill">
-                    <img src="icons8-mongo-db-64.png" alt="MongoDB">
-                    <span>MongoDB</span>
-                </div>
-                <div class="skill">
-                    <img src="Langchain -- Streamline-Simple-Icons.png" alt="LangChain">
-                    <span>LangChain</span>
-                </div>
-                <div class="skill">
-                    <img src="langgraph.png" alt="LangGraph">
-                    <span>LangGraph</span>
-                </div>
-                <div class="skill">
-                    <img src="angular.png" alt="Angular">
-                    <span>Angular</span>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>

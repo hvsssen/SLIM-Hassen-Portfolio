@@ -10,5 +10,6 @@ import { NavbarComponent } from './navbar/navbar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'hassenPortfolio';
+  title = 'Hassen Slim | Software Engineer & Applied AI';
+  readonly year = new Date().getFullYear();
 }

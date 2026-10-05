@@ -47,7 +47,8 @@ nav.sticky {
 
 .logo a {
   font-weight: 500;
-  font-size: 35px;
+  font-size: 28px;
+  white-space: nowrap;
   padding-left: 6px;
   color: #333;
   transition: color 0.3s ease;
@@ -84,7 +85,8 @@ nav.sticky .portfolio {
 
 .nav-links li a {
   color: #0E2431;
-  font-size: 18px;
+  font-size: 16px;
+  white-space: nowrap;
   font-weight: 500;
   padding: 10px 4px;
   transition: all 0.3s ease;
@@ -119,20 +121,40 @@ nav.sticky .nav-links li a:hover {
   height: auto;
   margin: 0 5px;
   margin-right: 5%;
-  opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.85;
+  transition: opacity 0.3s ease, transform 0.3s ease, filter 0.3s ease;
 }
 
 .media-icons a img:hover {
   transform: scale(1.1);
 }
 
-.media-icons a:hover ~ a img {
-  opacity: 0;
+.media-icons a:hover img {
+  opacity: 1;
 }
 
-.media-icons a:not(:hover) img {
-  opacity: 0.5;
+/* The social PNGs are solid black glyphs, so they disappear on any dark bar:
+   the blue sticky navbar and dark mode both need them inverted to white. */
+nav.sticky .media-icons a img,
+:host-context(body.dark-mode) .media-icons a img {
+  filter: invert(1);
+}
+
+/* Theme toggle: #4070f4 is too dark against the dark-mode navbar */
+:host-context(body.dark-mode) .theme-toggle {
+  border-color: #818cf8;
+}
+
+:host-context(body.dark-mode) .theme-toggle svg {
+  color: #818cf8;
+}
+
+:host-context(body.dark-mode) .theme-toggle:hover {
+  background: #818cf8;
+}
+
+:host-context(body.dark-mode) .theme-toggle:hover svg {
+  color: #0f172a;
 }
 
 /* Theme Toggle Button */
@@ -190,7 +212,27 @@ nav.sticky .theme-toggle:hover svg {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+/* Seven links need a little breathing room before the burger menu kicks in */
+@media (max-width: 1200px) {
+  .nav-links li {
+    margin: 0 5px;
+  }
+
+  .nav-links li a {
+    font-size: 15px;
+    padding: 10px 2px;
+  }
+
+  .logo a {
+    font-size: 24px;
+  }
+
+  .media-icons a img {
+    width: 26px;
+  }
+}
+
+@media (max-width: 1024px) {
   nav {
     padding: 10px 5%;
   }
@@ -228,7 +270,59 @@ nav.sticky .theme-toggle:hover svg {
   .media-icons {
     display: flex;
     justify-content: center;
-    width: 100%;
+    width: auto;
     padding: 5px 0;
+  }
+
+  .media-icons a img {
+    width: 24px;
+    margin: 0 3px;
+    margin-right: 0;
+  }
+
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    margin-right: 6px;
+    padding: 6px;
+  }
+}
+
+/* Very small phones: keep the logo, burger and icon row on one line */
+@media (max-width: 400px) {
+  nav {
+    padding: 8px 3%;
+  }
+
+  .logo a {
+    font-size: 19px;
+    padding-left: 0;
+  }
+
+  .menu-toggle {
+    font-size: 24px;
+    margin-left: 4px;
+    margin-right: 2px;
+  }
+
+  .media-icons {
+    gap: 4px;
+  }
+
+  .media-icons a img {
+    width: 20px;
+    margin: 0 2px;
+  }
+
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+    margin-right: 2px;
+    padding: 5px;
+  }
+
+  .theme-toggle svg {
+    width: 16px;
+    height: 16px;
   }
 }

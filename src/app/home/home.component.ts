@@ -1,8 +1,11 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { ResumeComponent } from "../resume/resume.component";
+import { ExperienceComponent } from "../experience/experience.component";
 import { SkillsComponent } from "../skills/skills.component";
 import { ProjectsComponent } from "../projects/projects.component";
+import { EducationComponent } from "../education/education.component";
 import { ContactComponent } from "../contact/contact.component";
 
 @Component({
@@ -10,66 +13,59 @@ import { ContactComponent } from "../contact/contact.component";
   standalone: true,
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  imports: [CommonModule, ResumeComponent, SkillsComponent, ProjectsComponent, ContactComponent]
+  imports: [
+    CommonModule,
+    RouterLink,
+    ResumeComponent,
+    ExperienceComponent,
+    ProjectsComponent,
+    SkillsComponent,
+    EducationComponent,
+    ContactComponent
+  ]
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('videoElement') video!: ElementRef;
 
+  private typingTimer?: ReturnType<typeof setInterval>;
+
   ngAfterViewInit() {
-    const videoElement = this.video.nativeElement;
+    const videoElement = this.video?.nativeElement;
 
-    setTimeout(() => {
-      videoElement.muted = true;
-      videoElement.play().catch((err: any) => console.log('Autoplay blocked:', err));
-    }, 500);
+    if (videoElement) {
+      setTimeout(() => {
+        videoElement.muted = true;
+        videoElement.play().catch((err: any) => console.log('Autoplay blocked:', err));
+      }, 500);
+    }
 
-    this.initAnimations();
+    this.initTypingEffect();
   }
 
-  initAnimations() {
-    // Typing effect for text
+  ngOnDestroy() {
+    if (this.typingTimer) {
+      clearInterval(this.typingTimer);
+    }
+  }
+
+  /** Types out the name in the hero, unless the visitor prefers reduced motion. */
+  private initTypingEffect() {
     const textTwo = document.querySelector('.text-two');
-    if (textTwo) {
-      const text = textTwo.textContent || '';
-      textTwo.textContent = '';
-      let i = 0;
-      const typing = setInterval(() => {
-        if (i < text.length) {
-          textTwo.textContent += text.charAt(i);
-          i++;
-        } else {
-          clearInterval(typing);
-        }
-      }, 100);
-    }
+    if (!textTwo) return;
 
-    // Floating particles
-    this.createFloatingParticles();
+    const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
 
-    // Mouse parallax effect
-    document.addEventListener('mousemove', (e) => {
-      const content = document.querySelector('.home-content') as HTMLElement;
-      if (content) {
-        const mouseX = e.clientX / window.innerWidth;
-        const mouseY = e.clientY / window.innerHeight;
-        
-        content.style.transform = `translate(${mouseX * 20}px, ${mouseY * 20}px)`;
+    const text = textTwo.textContent || '';
+    textTwo.textContent = '';
+    let i = 0;
+    this.typingTimer = setInterval(() => {
+      if (i < text.length) {
+        textTwo.textContent += text.charAt(i);
+        i++;
+      } else if (this.typingTimer) {
+        clearInterval(this.typingTimer);
       }
-    });
-  }
-
-  createFloatingParticles() {
-    const home = document.querySelector('.home');
-    if (!home) return;
-
-    for (let i = 0; i < 30; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'home-particle';
-      particle.style.left = Math.random() * 100 + '%';
-      particle.style.top = Math.random() * 100 + '%';
-      particle.style.animationDelay = Math.random() * 15 + 's';
-      particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-      home.appendChild(particle);
-    }
+    }, 100);
   }
 }

@@ -1,0 +1,44 @@
+<section class="education" id="education">
+  <div class="content">
+    <div class="title"><span>Education</span></div>
+
+    <div class="education-details">
+      <ul class="degree-list">
+        @for (degree of degrees; track degree.id) {
+          <li class="degree" [ngClass]="degree.accentClass">
+            <div class="degree-head">
+              <span class="date">{{ degree.period }}</span>
+              @if (degree.status) {
+                <span class="status" [class.status-done]="degree.status === 'Graduated'">{{ degree.status }}</span>
+              }
+            </div>
+            <h3 class="degree-title">{{ degree.degree }}</h3>
+            <div class="degree-school">
+              <a [href]="degree.schoolUrl" target="_blank" rel="noopener noreferrer">{{ degree.school }}</a>
+              <span class="degree-location">&middot; {{ degree.location }}</span>
+            </div>
+            <p class="descr">{{ degree.description }}</p>
+          </li>
+        }
+      </ul>
+
+      <div class="earlier">
+        <h4 class="earlier-title">Earlier education</h4>
+        <ul class="earlier-list">
+          @for (study of earlierStudies; track study.id) {
+            <li>
+              <span class="earlier-date">{{ study.period }}</span>
+              <span class="earlier-label">
+                {{ study.label }} at
+                <a [href]="study.schoolUrl" target="_blank" rel="noopener noreferrer">{{ study.school }}</a>
+                @if (study.note) {
+                  <span class="earlier-note">{{ study.note }}</span>
+                }
+              </span>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
